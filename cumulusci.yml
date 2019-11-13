@@ -1,0 +1,31 @@
+minimum_cumulusci_version: '3.1.0'
+project:
+    name: Compa-Food-Security-Network
+    package:
+        name:  Compa Food Security Network
+        api_version: '47.0'
+    dependencies:
+        - github: 'https://github.com/SalesforceFoundation/Cumulus'
+        - github: 'https://github.com/SFDO-Tooling/CCI-Food-Bank'
+
+sources:
+    npsp:
+        github: 'https://github.com/SalesforceFoundation/Cumulus'
+
+tasks:
+    robot:
+        options:
+            suites: robot/Compa-Food-Security-Network/tests
+            options:
+                outputdir: robot/Compa-Food-Security-Network/results
+
+    robot_testdoc:
+        options:
+            path: robot/Compa-Food-Security-Network/tests
+            output: robot/Compa-Food-Security-Network/doc/Compa-Food-Security-Network_tests.html
+
+flows:
+    dependencies:
+        steps:
+            3:
+                flow: npsp:config_managed
